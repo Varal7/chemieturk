@@ -231,7 +231,7 @@ var sequence_html = function(sequence, annotations) {
 
 var canSubmit = function() {
   for (var key of keys) {
-    if (values[key] == "" && !noVal[key].is(":checked") && noReaction.checked == false) {
+    if (values[key] == "" && !noVal[key].is(":checked")) {
       return false;
     }
   }
@@ -346,6 +346,7 @@ trigger.click(function() {
 });
 
 // Helper function
+
 var makeSpans = function(spansStrToAns) {
   var annList = _.map(spansStrToAns.split(","), function(el) {
     return parseInt(el);
@@ -356,11 +357,6 @@ var makeSpans = function(spansStrToAns) {
     });
   return _.toArray(list);
 };
-
-// No reaction enable Submit
-document.getElementById('noReaction').onclick = function() {
-	show();
-    }
 
 // ---------------------------------------------------------
 // Initialize

@@ -3,23 +3,43 @@
 // ---------------------------------------------------------
 
 var fieldName = {
-    "name": "Product name",
-    "version": "Product version",
-    "protocol": "Protocol",
+    "Reactants": "Reactants",
+    "Products": "Products",
+    "Yield": "Yield",
+    "Reaction": "Reaction",
+    "Catalyst": "Catalyst",
+    "Solvent": "Solvent",
+    "Temperature": "Temperature",
+    "Time": "Time",
 }
 var shortName = {
-    "name": "name",
-    "version": "version",
-    "protocol": "protocol",
+    "Reactants": "Reactants",
+    "Products": "Products",
+    "Yield": "Yield",
+    "Reaction": "Reaction",
+    "Catalyst": "Catalyst",
+    "Solvent": "Solvent",
+    "Temperature": "Temperature",
+    "Time": "Time",
 }
 var longDesc = {
-    "name": "Product name. Name of the software/device/library that is affected by this vulnerability ",
-    "version": 'Version or versions of the product that is affected. E.g. "1.3.0" or "through 2.7"',
-    "protocol": "Form in which the input is given to exploit the vulnerability",
+    "Reactants": "Reactants",
+    "Products": "Products of the reaction",
+    "Yield": "Yield of the reaction",
+    "Reaction": "Reaction type",
+    "Catalyst": "Catalyst used in the reaction",
+    "Solvent": "Solvent used in the reaction",
+    "Temperature": "Temperature of the reaction",
+    "Time": "Duration of the reaction",
 }
 var shortcutKey = {
-    "name": "a",
-    "version": "e",
-    "protocol": "r",
+    "Reactants": "R",
+    "Products": "P",
+    "Yield": "Y",
+    "Reactants": "RT",
+    "Catalyst": "Cat",
+    "Solvent": "Solv",
+    "Temperature": "Te",
+    "Time": "Ti",
 }
 

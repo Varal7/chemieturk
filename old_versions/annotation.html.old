@@ -3,7 +3,6 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="panel panel-primary"><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Tagging Instructions</strong> <span class="collapse-text">(Click to expand)</span> </a>
-		<p>&nbsp;&nbsp; Download the detailed annotation instructions <a href="Annotation_rules_v9.pdf" target="_blank">here</a></p>
                 <div class="panel-body" id="instructionBody"><strong>Tag the description to extract the following fields of interest</strong>
                     <table class="table table-condensed table-striped table-responsive">
                         <colgroup>
