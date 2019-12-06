@@ -64,6 +64,16 @@ var makeAnswerHidden = function(key) {
   return input;
 };
 
+var makeDummyField = function() {
+  const rand = Math.floor(Math.random() * 1000000);
+  var input = $("<input>").attr({
+    type: "hidden",
+    name: rand,
+    id: rand + "-hidden"
+  });
+  return input;
+};
+
 var makeTagHidden = function(key) {
   var input = $("<input>").attr({
     type: "hidden",
@@ -132,6 +142,7 @@ var makeDom = function() {
     values[key] = "";
     instructionTable.append(makeInstruction(key));
   }
+  form.append(makeDummyField());
 };
 
 // ---------------------------------------------------------
@@ -213,7 +224,6 @@ var toggle_old_new = function() {
 // ---------------------------------------------------------
 
 var sequence_html = function(sequence, annotations) {
-  console.log(sequence);
   var ret = _.map(sequence, function(token, index) {
     return '<span class="token" id=tok_' + index + ">" + token + "</span>";
   });
@@ -253,8 +263,6 @@ var show = function() {
   answer[key].val(values[key]);
   answerHidden[key].val(values[key]);
   tagHidden[key].val(annotations[key]);
-  console.log(key);
-  console.log(annotations[key]);
   keyname.html(shortName[key]);
 
   // Handler on tokens
@@ -377,7 +385,6 @@ var tokens = raw.text().split(" ");
 raw.hide();
 var suggests = makeSpans(spans.text());
 spans.hide();
-console.log(tokens);
 
 // Load prefilled data if it exists already
 
