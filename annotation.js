@@ -231,7 +231,11 @@ var sequence_html = function(sequence, annotations) {
 
 var canSubmit = function() {
   for (var key of keys) {
-    if (values[key] == "" && !noVal[key].is(":checked") && noReaction.checked == false) {
+    if (
+      values[key] == "" &&
+      !noVal[key].is(":checked") &&
+      noReaction.checked == false
+    ) {
       return false;
     }
   }
@@ -347,6 +351,9 @@ trigger.click(function() {
 
 // Helper function
 var makeSpans = function(spansStrToAns) {
+  if (0 == spansStrToAns.length) {
+    return [];
+  }
   var annList = _.map(spansStrToAns.split(","), function(el) {
     return parseInt(el);
   });
@@ -358,19 +365,37 @@ var makeSpans = function(spansStrToAns) {
 };
 
 // No reaction enable Submit
-document.getElementById('noReaction').onclick = function() {
-	show();
-    }
+document.getElementById("noReaction").onclick = function() {
+  show();
+};
 
 // ---------------------------------------------------------
 // Initialize
 // ---------------------------------------------------------
 
-key = keys[0];
-radios[key].click();
 var tokens = raw.text().split(" ");
 raw.hide();
 var suggests = makeSpans(spans.text());
 spans.hide();
 console.log(tokens);
+
+// Load prefilled data if it exists already
+
+for (const filledKey of keys) {
+  key = filledKey;
+  const field = $("#" + filledKey);
+  if (!field) {
+    continue;
+  }
+  const spans = makeSpans(field.text());
+  if (!spans.length) {
+    noVal[key].prop("checked", true);
+  } else {
+    annotations[key] = spans;
+  }
+  show();
+}
+
+key = keys[0];
+radios[key].click();
 show();
