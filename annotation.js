@@ -390,10 +390,11 @@ spans.hide();
 
 for (const filledKey of keys) {
   key = filledKey;
-  const field = $("#" + filledKey);
+  const field = $("#" + filledKey + "-fill");
   if (!field) {
     continue;
   }
+  field.hide();
   const spans = makeSpans(field.text());
   if (!spans.length) {
     noVal[key].prop("checked", true);
