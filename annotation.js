@@ -64,16 +64,6 @@ var makeAnswerHidden = function(key) {
   return input;
 };
 
-var makeDummyField = function() {
-  const rand = Math.floor(Math.random() * 1000000);
-  var input = $("<input>").attr({
-    type: "hidden",
-    name: rand,
-    id: rand + "-hidden"
-  });
-  return input;
-};
-
 var makeTagHidden = function(key) {
   var input = $("<input>").attr({
     type: "hidden",
@@ -142,7 +132,6 @@ var makeDom = function() {
     values[key] = "";
     instructionTable.append(makeInstruction(key));
   }
-  form.append(makeDummyField());
 };
 
 // ---------------------------------------------------------
@@ -359,12 +348,12 @@ trigger.click(function() {
 
 // Helper function
 var makeSpans = function(spansStrToAns) {
-  if (0 == spansStrToAns.length) {
-    return [];
-  }
   var annList = _.map(spansStrToAns.split(","), function(el) {
     return parseInt(el);
   });
+  if (annList.length <= 1) {
+    return [];
+  }
   var i = 2,
     list = _.groupBy(annList, function(a, b) {
       return Math.floor(b / i);
